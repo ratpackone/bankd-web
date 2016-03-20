@@ -34,6 +34,26 @@ angular
         controller: 'LoginCtrl',
         controllerAs: 'login'
       })
+      .when('/register', {
+        templateUrl: 'views/register.html',
+        controller: 'RegisterCtrl',
+        controllerAs: 'register'
+      })
+      .when('/faq', {
+        templateUrl: 'views/faq.html',
+        controller: 'FaqCtrl',
+        controllerAs: 'faq'
+      })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl',
+        controllerAs: 'contact'
+      })
+      .when('/imprint', {
+        templateUrl: 'views/imprint.html',
+        controller: 'ImprintCtrl',
+        controllerAs: 'imprint'
+      })
       .otherwise({
         redirectTo: '/'
       });

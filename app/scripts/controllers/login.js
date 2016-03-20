@@ -9,21 +9,22 @@
  */
  var app = angular.module('bankdWebApp');
  
- app.controller('LoginCtrl', ['$scope', function($scope) {
+ app.controller('LoginCtrl', ['$scope', 'SessionService', function($scope, SessionService) {
  	
  	$scope.logIn = function(email, password) {
- 		
+ 		SessionService.login(email, password);
  	};
 
  }]);
 
 app.factory('SessionService', ['$http', '$q', function($http, $q){
+	
 	return {
 		signup: function(email, password) {
 
 		},
 		login: function(email, password) {
-
+			var deferred = $q.defer();
 		},
 		logout: function() {
 
