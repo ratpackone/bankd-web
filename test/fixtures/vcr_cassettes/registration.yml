@@ -1,0 +1,34 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://bankt.prodoweb.de/api/users
+    body:
+      encoding: UTF-8
+      string: '{"username":"hallo@123.de","password":"password"}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.1.19
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Date:
+      - Sat, 23 Apr 2016 12:53:08 GMT
+    body:
+      encoding: UTF-8
+      string: '{"token":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXUyJ9.eyJleHAiOjE0NjE1MDIzODgsInVzZXJuYW1lIjoiaGFsbG9AMTIzLmRlIiwiaWF0IjoiMTQ2MTQxNTk4OCJ9.IJ6a4RXXfr-SH6oeORHapUNzaBKW3j0_qQAytslv8-pXaPsKLQqCxEkbuPCvYXo-5CCWFTARjwzFcCtMSR63vWrHV3IcIP2S6CpKu4jnc81tcZ08yYGsHoXLT3EOyimAXbZ0dXFA8_IQI2ROPUfDPBI9X_g2a52WRsA8BtVjvmBcp-xWEevoXIQUi-RRbQiMBiOAYvsgETaEMXrvH0ZH0ydSfanqP2R6JhRfv_GZgzJvS_hNj-B3Siy10VO24NWr7tDSoYncCgkw2fUyDI_xNy_84fcETgHltJk7YaAnFmn1X0jN_H572Ax-JJzFEje1MkBTT4iuD7q9FUKB9dDO74Zkh0-Og7ppjOFnasfpILlyLJnSaDKiM75wCxAeP-hhqlmtWPHyMzoNCK-J4s4JygyqSU9JQWJLuUteMtbFBUNVygIlqTdB_pMPVPf8SVKFt8HXAwxBytqgZmcV4ZBaZloVxFbcadJkl-F-aCvopH1-Q2HN0slIW5GUf-lvAmQty2aVzjcton2h7zd8PoCwIi-EYtNByXtae2DM5kbUGweJwMjS8UcIwTSTg_SC6XXFgFC01PIGM7Xj_hnFOgZqFUONIDZRVW5NmgqMVr5fHsKd_YBPJVCD9DpdGsL_k22fSEMfaxvvOUs25uGim3CtccpxMej7bxOVCHh1BfayFrg"}'
+    http_version: 
+  recorded_at: Sat, 23 Apr 2016 12:53:08 GMT
+recorded_with: VCR 3.0.1
