@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+	before_action :redirect_logged_in_user
+
 	def signup
 	end
 
@@ -19,6 +22,14 @@ class UsersController < ApplicationController
 		else
 			flash[:notice] = "Something went wrong"
 			redirect_to signup_path
+		end
+	end
+
+	private
+	
+	def redirect_logged_in_user
+		if session[:token] && !session[:token].blank?
+			redirect_to accounts_path
 		end
 	end
 end
