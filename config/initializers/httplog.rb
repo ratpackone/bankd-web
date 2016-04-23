@@ -1,0 +1,1 @@
+HttpLog.options[:headers] = true

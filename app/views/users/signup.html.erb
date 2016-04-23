@@ -1,0 +1,14 @@
+<h1>Sign up for BankD</h1>
+
+<%= form_tag register_path, method: "post" do %>
+	<% if flash[:notice] %>
+		<div class="alert alert-danger"><%= flash[:notice] %></div>
+	<% end  %>
+
+	<label for="email">Email</label>
+	<input type="email" class="form-control" name="email" placeholder="john.doe@example.com"></input>
+	<label for="password">Password</label>
+	<input type="password" class="form-control" name="password" placeholder="Your password"></input>
+	<input type="submit" class="btn btn-primary"></input>
+<% end %>
+<%= link_to 'Or log in...', login_path %>
