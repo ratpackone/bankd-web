@@ -9,17 +9,22 @@
 </head>
 <body>
 	<div id="header">
-		<%= link_to 'BankD', home_path %>
-		<% if session[:token] && session[:username] %>
-			<%= link_to session[:username], sessions_destroy_path %>
-		<% else %>
-			<%= link_to 'Log in', login_path %>
-		<% end  %>
+		<div class="logo">
+			<%= link_to 'BankD', login_path %>
+		</div>
+		<div class="login_out">
+			<% if session[:token] && session[:username] %>
+				<%= link_to 'Log out', sessions_destroy_path %>
+			<% else %>
+				<%= link_to 'Log in', login_path %>
+			<% end %>
+		</div>
 	</div>
 
-	<div id="content">
+	<div id="content" class="container">
 		<%= yield %>
 	</div>
+	
 	<div id="footer">
 		
 	</div>

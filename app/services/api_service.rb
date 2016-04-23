@@ -35,6 +35,7 @@ class APIService < Struct.new(:request, :jwt)
 				'Authorization' => auth
 			}
 		)
+		# TODO Which format are accounts built in?
 	end
 
 	private
