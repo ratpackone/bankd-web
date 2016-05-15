@@ -1,11 +1,20 @@
-<div class="login-prompt">
-	<form ng-submit="logIn(user.email, user.password);">
-		<label>Username</label>
-		<input type="text" class="form-control" placeholder="max@mustermann.de" ng-model="user.email"></input>
-		<label>Password</label>
-		<input type="password" class="form-control" ng-model="user.password"></input>
-		<input type="submit" class="btn btn-branded"></input>
-	</form>
+<div class="col-md-4 col-md-offset-4 login-prompt">
+	<h2>Log in to your BankD Account</h2>
+	<div class="alert alert-danger" ng-show="loginError.length > 0">
+		{{loginError}}
+	</div>
+	<form>
+		<label for="email">Email</label>
+		<input type="email" class="form-control" name="username" placeholder="john.doe@example.com"
+			   ng-model="loginData.username" value="tino.wittig@prodoweb.de">
 
-	<a href="#/register">...or create an account</a>
+		<label for="password">Password</label>
+		<input type="password" class="form-control" name="password" placeholder="Your password"
+			   ng-model="loginData.password" value="test1234">
+
+		<input type="submit" class="btn btn-primary" ng-click="login(loginData)" value="Log in">
+	</form>
+	<div class="link-wrapper">
+		<a href="/register">Or create a new account...</a>
+	</div>
 </div>

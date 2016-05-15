@@ -1,0 +1,50 @@
+<a class="btn btn-primary pull-right" ng-click="connect('figo')">Connect with Figo</a>
+
+<div class="col-md-12">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Current Status</th>
+            <th>Warning Amount</th>
+            <th>Alarm Amount</th>
+            <th>Current Amount</th>
+            <th>Connected Light</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="bankaccount in bankaccounts">
+            <td>{{ bankaccount.name }}</td>
+            <td>{{ bankaccount.status }}</td>
+            <td>{{ bankaccount.amount_warning }}</td>
+            <td>{{ bankaccount.amount_alarm }}</td>
+            <td>{{ bankaccount.current_amount }}</td>
+            <td>{{ bankaccount.device.name }}</td>
+            <td><a class="btn btn-default" ng-click="editBankaccount(bankaccount)">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/ng-template" id="editBankaccount.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Edit {{bankaccount.name}}</h3>
+    </div>
+    <div class="modal-body">
+        <label for="amount_warning">Warning Amount</label>
+        <input type="text" name="amount_warning" class="form-control" ng-model="bankaccount.amount_warning">
+
+        <label for="amount_alarm">Alarm Amount</label>
+        <input type="text" name="amount_alarm" class="form-control" ng-model="bankaccount.amount_alarm">
+
+        <label for="device">Choose a Light</label>
+        <select name="device" class="form-control"
+                ng-options="option.name for option in devices track by option.identifier"
+                ng-model="bankaccount.device"></select>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Save</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>

@@ -7,27 +7,24 @@
  * # LoginCtrl
  * Controller of the bankdWebApp
  */
- var app = angular.module('bankdWebApp');
- 
- app.controller('LoginCtrl', ['$scope', 'SessionService', function($scope, SessionService) {
- 	
- 	$scope.logIn = function(email, password) {
- 		SessionService.login(email, password);
- 	};
 
- }]);
+angular.module('bankdWebApp')
+    .controller('LoginCtrl', ['$scope', '$http', 'localStorageService', '$location',
+        function ($scope, $http, localStorageService, $location) {
 
-app.factory('SessionService', ['$http', '$q', function($http, $q){
-	
-	return {
-		signup: function(email, password) {
+            var loginSuccess = function (response) {
+                localStorageService.set('AuthToken', response.data.token);
+                $http.defaults.headers.common.Authorization = 'Bearer ' + response.data.token;
+                $location.path('/bankaccount');
+            }
 
-		},
-		login: function(email, password) {
-			var deferred = $q.defer();
-		},
-		logout: function() {
+            var loginError = function (response) {
+                $scope.loginError = 'Invalid Credentials?';
+            }
 
-		}
-	}
-}]);
+            $scope.login = function (data) {
+                data = {'username': data.username, 'password': data.password};
+                $http.post('/api/login_check', data).then(loginSuccess, loginError);
+            }
+
+        }]);

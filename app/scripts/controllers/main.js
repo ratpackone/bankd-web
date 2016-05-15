@@ -7,8 +7,7 @@
  * # MainCtrl
  * Controller of the bankdWebApp
  */
- var app = angular.module('bankdWebApp');
 
- app.controller('MainCtrl', ['$scope', function ($scope) {
+angular.module('bankdWebApp').controller('MainCtrl', ['$scope', function ($scope) {
  	$scope.test = 'test';
  }]);
